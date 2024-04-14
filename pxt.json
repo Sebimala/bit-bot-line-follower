@@ -4,7 +4,8 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "BitBot": "github:4tronix/bitbot#v1.5.12"
     },
     "files": [
         "main.blocks",

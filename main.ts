@@ -1,10 +1,19 @@
+input.onButtonPressed(Button.A, function () {
+    Running = 1
+})
+let Running = 0
 bitbot.select_model(BBModel.XL)
+Running = 0
 basic.forever(function () {
-    if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
-        bitbot.rotatems(BBRobotDirection.Left, 100, 400)
-    } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
-        bitbot.rotatems(BBRobotDirection.Right, 100, 400)
+    if (Running == 1) {
+        if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
+            bitbot.rotatems(BBRobotDirection.Left, 100, 400)
+        } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
+            bitbot.rotatems(BBRobotDirection.Right, 100, 400)
+        } else {
+            bitbot.go(BBDirection.Forward, 60)
+        }
     } else {
-        bitbot.go(BBDirection.Forward, 60)
+        bitbot.go(BBDirection.Forward, 0)
     }
 })

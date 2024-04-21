@@ -33,7 +33,7 @@ basic.forever(function () {
                 . . # . .
                 `)
         } else {
-            bitbot.goms(BBDirection.Forward, 60, 50)
+            bitbot.goms(BBDirection.Forward, 15, 50)
         }
     } else {
         bitbot.stop(BBStopMode.Brake)

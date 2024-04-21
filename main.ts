@@ -10,8 +10,8 @@ bitbot.select_model(BBModel.XL)
 Running = 0
 basic.forever(function () {
     if (Running == 1) {
-        if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
-            bitbot.rotatems(BBRobotDirection.Left, 50, 400)
+        if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
+            bitbot.rotatems(BBRobotDirection.Left, 60, 25)
             basic.showLeds(`
                 . . # . .
                 . # . . .
@@ -19,8 +19,8 @@ basic.forever(function () {
                 . # . . .
                 . . # . .
                 `)
-        } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
-            bitbot.rotatems(BBRobotDirection.Right, 50, 400)
+        } else if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
+            bitbot.rotatems(BBRobotDirection.Right, 60, 25)
             basic.showLeds(`
                 . . # . .
                 . . . # .
@@ -29,7 +29,7 @@ basic.forever(function () {
                 . . # . .
                 `)
         } else {
-            bitbot.go(BBDirection.Forward, 15)
+            bitbot.go(BBDirection.Forward, 10)
             basic.showLeds(`
                 . . # . .
                 . # # # .

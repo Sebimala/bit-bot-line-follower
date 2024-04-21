@@ -1,5 +1,17 @@
 input.onButtonPressed(Button.A, function () {
-    Running = 1
+    if (Running == 0) {
+        Running = 1
+        basic.showLeds(`
+            . . # . .
+            . # # # .
+            # . # . #
+            . . # . .
+            . . # . .
+            `)
+    } else {
+        Running = 0
+        basic.showIcon(IconNames.No)
+    }
 })
 let Running = 0
 bitbot.select_model(BBModel.XL)
@@ -7,13 +19,13 @@ Running = 0
 basic.forever(function () {
     if (Running == 1) {
         if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
-            bitbot.rotatems(BBRobotDirection.Left, 67, 400)
+            bitbot.rotatems(BBRobotDirection.Left, 50, 400)
         } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
-            bitbot.rotatems(BBRobotDirection.Right, 61, 400)
+            bitbot.rotatems(BBRobotDirection.Right, 50, 400)
         } else {
-            bitbot.go(BBDirection.Forward, 30)
+            bitbot.go(BBDirection.Forward, 10)
         }
     } else {
-        bitbot.go(BBDirection.Forward, 0)
+        bitbot.stop(BBStopMode.Brake)
     }
 })

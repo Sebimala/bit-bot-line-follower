@@ -23,7 +23,7 @@ basic.forever(function () {
         } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
             bitbot.rotatems(BBRobotDirection.Right, 50, 400)
         } else {
-            bitbot.go(BBDirection.Forward, 10)
+            bitbot.go(BBDirection.Forward, 45)
         }
     } else {
         bitbot.stop(BBStopMode.Brake)

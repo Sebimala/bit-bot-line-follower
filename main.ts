@@ -29,7 +29,7 @@ basic.forever(function () {
                 . . # . .
                 `)
         } else {
-            bitbot.go(BBDirection.Forward, 10)
+            bitbot.go(BBDirection.Forward, 15)
             basic.showLeds(`
                 . . # . .
                 . # # # .

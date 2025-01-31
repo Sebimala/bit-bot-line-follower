@@ -13,12 +13,12 @@ basic.forever(function () {
     if (drive == 1) {
         if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
             bitbot.rotatems(BBRobotDirection.Left, 20, 100)
-            if (speed > 10) {
+            if (speed > 4) {
                 speed += -2
             }
         } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
             bitbot.rotatems(BBRobotDirection.Right, 20, 100)
-            if (speed > 10) {
+            if (speed > 4) {
                 speed += -2
             }
         } else {

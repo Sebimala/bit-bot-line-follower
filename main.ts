@@ -3,10 +3,12 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onButtonPressed(Button.B, function () {
     drive = 0
+    speed = 10
 })
 let drive = 0
+let speed = 0
 let maxspeed = 30
-let speed = 10
+speed = 10
 drive = 0
 bitbot.select_model(BBModel.XL)
 basic.forever(function () {

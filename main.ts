@@ -7,7 +7,7 @@ input.onButtonPressed(Button.B, function () {
 })
 let drive = 0
 let speed = 0
-bitbot.BBBias(BBRobotDirection.Left, 10)
+bitbot.BBBias(BBRobotDirection.Right, 10)
 let maxspeed = 20
 speed = 10
 let turnspeed = 15

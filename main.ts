@@ -7,19 +7,21 @@ input.onButtonPressed(Button.B, function () {
 })
 let drive = 0
 let speed = 0
-let maxspeed = 30
+bitbot.BBBias(BBRobotDirection.Left, 10)
+let maxspeed = 20
 speed = 10
+let turnspeed = 15
 drive = 0
 bitbot.select_model(BBModel.XL)
 basic.forever(function () {
     if (drive == 1) {
         if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
-            bitbot.rotatems(BBRobotDirection.Left, 20, 100)
+            bitbot.rotatems(BBRobotDirection.Left, Math.max(turnspeed, speed), 100)
             if (speed > 4) {
                 speed += -2
             }
         } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
-            bitbot.rotatems(BBRobotDirection.Right, 20, 100)
+            bitbot.rotatems(BBRobotDirection.Right, Math.max(turnspeed, speed), 100)
             if (speed > 4) {
                 speed += -2
             }

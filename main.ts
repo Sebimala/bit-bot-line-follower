@@ -1,13 +1,33 @@
+input.onButtonPressed(Button.A, function () {
+    drive = 1
+})
+input.onButtonPressed(Button.B, function () {
+    drive = 0
+})
+let drive = 0
+let maxspeed = 30
+let speed = 10
+drive = 0
 bitbot.select_model(BBModel.XL)
-// 1 - 18% left
-// 2 - 10% right
-bitbot.BBBias(BBRobotDirection.Left, 18)
 basic.forever(function () {
-    if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
-        bitbot.rotatems(BBRobotDirection.Left, 30, 25)
-    } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
-        bitbot.rotatems(BBRobotDirection.Right, 30, 25)
+    if (drive == 1) {
+        if (bitbot.readLine(BBLineSensor.Left) == 1 && bitbot.readLine(BBLineSensor.Right) == 0) {
+            bitbot.rotatems(BBRobotDirection.Left, 20, 100)
+            if (speed > 10) {
+                speed += -2
+            }
+        } else if (bitbot.readLine(BBLineSensor.Left) == 0 && bitbot.readLine(BBLineSensor.Right) == 1) {
+            bitbot.rotatems(BBRobotDirection.Right, 20, 100)
+            if (speed > 10) {
+                speed += -2
+            }
+        } else {
+            bitbot.go(BBDirection.Forward, speed)
+            if (speed < maxspeed) {
+                speed += 2
+            }
+        }
     } else {
-        bitbot.go(BBDirection.Forward, 20)
+        bitbot.stop(BBStopMode.Brake)
     }
 })
